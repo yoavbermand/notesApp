@@ -8,7 +8,8 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            email: ""
+            inputEmail: "",
+            outputEmail: ""
         }
     }
 
@@ -21,15 +22,15 @@ class App extends React.Component {
                         Edit <code>src/App.js</code> and save to reload.
 
                     </p>
-                    <input id='myinput' type='text'/>
+                    <input value={this.state.inputEmail} type='text' onChange={event => this.setState({inputEmail: event.target.value})}/>
                     <button onClick={_ => {
-                        this.setState({email: document.getElementById('myinput').value})
+                        this.setState({outputEmail: this.state.inputEmail})
                     }}>
                         Click Me
                     </button>
 
 
-                    {this.state.email}
+                    {this.state.outputEmail}
 
 
                 </header>

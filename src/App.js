@@ -6,10 +6,10 @@ class App extends React.Component {
 
     constructor(props) {
         super(props);
+        this.inputRef = React.createRef();
 
         this.state = {
-            inputEmail: "",
-            outputEmail: ""
+            email: ""
         }
     }
 
@@ -22,15 +22,15 @@ class App extends React.Component {
                         Edit <code>src/App.js</code> and save to reload.
 
                     </p>
-                    <input value={this.state.inputEmail} type='text' onChange={event => this.setState({inputEmail: event.target.value})}/>
+                    <input ref={this.inputRef} type='text'/>
                     <button onClick={_ => {
-                        this.setState({outputEmail: this.state.inputEmail})
+                        this.setState({email: this.inputRef.current.value})
                     }}>
                         Click Me
                     </button>
 
 
-                    {this.state.outputEmail}
+                    {this.state.email}
 
 
                 </header>
